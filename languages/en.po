@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Product Voting Addon\n"
+"POT-Creation-Date: 2017-03-28 12:43+0600\n"
+"PO-Revision-Date: 2017-03-28 12:43+0600\n"
+"Last-Translator: \n"
+"Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__;_n\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../public/class-wpva-addon.php:190
+msgid "Sort by Top Liked"
+msgstr ""
+
+#: ../public/class-wpva-addon.php:191
+msgid "Sort by Top Disliked"
+msgstr ""
+
+#: ../public/class-wpva-addon.php:193
+msgid "Sort by votes: Low to High"
+msgstr ""
+
+#: ../public/class-wpva-addon.php:194
+msgid "Sort by votes: High to Low"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:176 ../widgets/pvm-woo-widget.php:438
+msgid "Sorry, No Product Found!"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:200
+msgid "WooCommerce Voting Widget"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:203
+msgid "Display Top Up/Down Voted Products In sidebar area"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:212
+msgid "Top Liked Products"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:227
+msgid "Title"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:238
+msgid "Filter Type:"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:240 ../widgets/pvm-woo-widget.php:370
+msgid "Last 1 Day"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:241 ../widgets/pvm-woo-widget.php:371
+msgid "Last 1 Week"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:242 ../widgets/pvm-woo-widget.php:372
+msgid "Last 1 Month"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:243 ../widgets/pvm-woo-widget.php:373
+msgid "Last 6 Month"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:244 ../widgets/pvm-woo-widget.php:374
+msgid "Count All"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:250
+msgid "Display Frontend Voting Filter"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:259
+msgid "Order Type:"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:261
+msgid "Liked"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:262
+msgid "Disliked"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:268
+msgid "No Of Posts"
+msgstr ""
+
+#: ../widgets/pvm-woo-widget.php:369
+msgid "Result Filter"
+msgstr ""
