@@ -3,8 +3,8 @@ variables:
   FTP_SUSERNAME: u168445203.projects_staging
   FTP_HOST: ftp.bluewindlab.net
   FTP_PUSERNAME: u138608855.projects_production
-  BUILD_DIR: /home/gitlab-runner/builds/$CI_RUNNER_SHORT_TOKEN/0/bwl-wp-plugins/bwl-pro-voting-manager
-  DEPLOY_DIR: bpvm/wp-content/plugins/bwl-pro-voting-manager
+  BUILD_DIR: /home/gitlab-runner/builds/$CI_RUNNER_SHORT_TOKEN/0/bpvm-addon/woocommerce-product-voting-addon
+  DEPLOY_DIR: bpvm/wp-content/plugins/woocommerce-product-voting-addon
 stages:
   - build
   - staging
