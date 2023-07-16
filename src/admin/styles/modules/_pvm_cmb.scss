@@ -1,0 +1,70 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 11, 2016, 4:07:20 PM
+    Author     : BlueWindLab
+*/
+
+.pvm_feedbacks li {
+  background: #fafafa;
+  line-height: 2em;
+  padding: 0 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.pvm_feedbacks li:nth-child(2n + 1) {
+  background: #fbfbfb;
+}
+
+.pvm_feedbacks .no-counter {
+  list-style: circle;
+}
+
+.pvm_feedbacks li a.pvm_remove_feedback {
+  background: #eb644a;
+  border-radius: 2px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  text-decoration: none;
+  width: 16px;
+  display: inline-block;
+  text-align: center;
+}
+
+/*----- Option panel button ----*/
+
+body.voting-manager_page_bwl-pvm_option_panel .sections h2 {
+  font-size: 24px;
+  padding-left: 6px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
+body.voting-manager_page_bwl-pvm_option_panel .sections label {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+body.voting-manager_page_bwl-pvm_option_panel .desc-field {
+  font-size: 14px;
+  margin-bottom: 12px;
+  margin-top: 16px;
+  color: #515151;
+  line-height: 24px;
+  text-shadow: none;
+}
+
+body.voting-manager_page_bwl-pvm_option_panel .button.wp-picker-clear {
+  right: -70px !important;
+  top: -24px !important;
+  position: relative;
+}

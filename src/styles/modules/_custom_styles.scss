@@ -1,0 +1,88 @@
+section.woo_pvm_theme {
+  background: inherit;
+}
+
+section.woo_pvm_theme .stat-bar-blank {
+  display: none;
+}
+
+section.woo_pvm_theme.bwl_pvm_container {
+  width: 100%;
+  display: block;
+  margin: 0 auto 24px auto;
+  clear: both;
+  float: none !important;
+  padding: 6px;
+  border-bottom: 0px;
+}
+
+section.woo_pvm_theme.bwl_pvm_container .pvm_btn_container {
+  width: 50%;
+}
+
+section.woo_pvm_theme .btn_like,
+section.woo_pvm_theme .btn_dislike {
+  width: 28px;
+  height: 28px;
+  line-height: 26px;
+  margin-top: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 12px;
+  padding: 0 3px 0 4px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+section.woo_pvm_theme .btn_like {
+  background: inherit;
+}
+
+section.woo_pvm_theme .btn_dislike {
+  background: inherit;
+}
+
+section.woo_pvm_theme .stat-cnt {
+  float: none;
+  width: 100%;
+  clear: right;
+}
+
+section.woo_pvm_theme .like-count-container,
+section.woo_pvm_theme .dislike-count-container {
+  padding-left: 8px;
+}
+
+section.woo_pvm_theme span.bpvm-share-links {
+  text-align: center;
+}
+
+section.woo_pvm_theme span.bpvm-share-links a.btn-share {
+  height: 24px;
+  width: 24px;
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.pvm-front-end-filter-container {
+  text-align: right;
+}
+
+.woo-result-filter {
+}
+
+.wrf-overlay {
+  position: relative;
+  overflow: hidden;
+  background: url("../images/loader.gif") center center no-repeat transparent;
+}
+
+.wrf-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 400px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}

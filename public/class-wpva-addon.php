@@ -1,13 +1,15 @@
 <?php
 
-class BPVM_Wpva {
+class BPVM_Wpva
+{
 
     const VERSION = BPVMWPVA_ADDON_CURRENT_VERSION;
 
     protected $plugin_slug = 'bpvm-wpva';
     protected static $instance = null;
 
-    private function __construct() {
+    private function __construct()
+    {
 
         if (class_exists('BWL_Pro_Voting_Manager') && class_exists('WooCommerce') && BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION > '1.1.0') {
 
@@ -26,13 +28,14 @@ class BPVM_Wpva {
 
             // This function has been added in version 1.0.2.
             // It counts and update all the products both like and dislike votes and update in to a post meta 'pvm_total_votes'.
-//                        add_action('save_post_product', array( $this, 'wpva_update_post_meta') ); // update post meta.
+            //                        add_action('save_post_product', array( $this, 'wpva_update_post_meta') ); // update post meta.
 
             $this->include_files();
         }
     }
 
-    function wpva_update_total_votes() {
+    function wpva_update_total_votes()
+    {
 
 
         $get_pvm_total_votes_update = get_option('pvm_total_votes_update');
@@ -78,34 +81,35 @@ class BPVM_Wpva {
         }
     }
 
-    function include_files() {
-
-        require_once( BPVMWPVA_DIR . 'widgets/pvm-woo-widget.php' );
+    public function include_files()
+    {
+        require_once(BPVMWPVA_PATH . 'includes/widgets/pvm-woo-widget.php');
     }
 
-    function bpvm_shop_display_voting_meta() {
+    function bpvm_shop_display_voting_meta()
+    {
 
         global $product;
-        
+
         $post_id = $product->get_id();
-        
+
         $bwl_pvm_display_status = get_post_meta($post_id, "bwl_pvm_display_status", true);
-        
-        if( $bwl_pvm_display_status == "" ) {
-            $bwl_pvm_display_status =1;
+
+        if ($bwl_pvm_display_status == "") {
+            $bwl_pvm_display_status = 1;
         }
-        
+
         echo do_shortcode('[bwl_pvm id=' . $post_id . ' status=' . $bwl_pvm_display_status . ' woo=1]');
-        
     }
 
-    function bpvm_add_postmeta_ordering_args($sort_args) {
+    function bpvm_add_postmeta_ordering_args($sort_args)
+    {
 
         $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
 
         switch ($orderby_value) {
 
-            // Name your sortby key whatever you'd like; must correspond to the $sortby in the next function
+                // Name your sortby key whatever you'd like; must correspond to the $sortby in the next function
             case 'pvm_like_votes_count':
                 $sort_args['orderby'] = 'meta_value_num';
                 // Sort by meta_value because we're using alphabetic sorting
@@ -139,7 +143,8 @@ class BPVM_Wpva {
     }
 
     // Add these new sorting arguments to the sortby options on the frontendBPVM_UVT_Admin
-    function bpvm_add_new_postmeta_orderby($sortby) {
+    function bpvm_add_new_postmeta_orderby($sortby)
+    {
 
         // Adjust the text as desired
 
@@ -152,7 +157,8 @@ class BPVM_Wpva {
         return $sortby;
     }
 
-    function wpva_update_post_meta($post_id) {
+    function wpva_update_post_meta($post_id)
+    {
         add_post_meta($post_id, 'pvm_like_votes_count', 0, true);
         add_post_meta($post_id, 'pvm_dislike_votes_count', 0, true);
     }
@@ -164,7 +170,8 @@ class BPVM_Wpva {
      *
      * @return    Plugin slug variable.
      */
-    public function get_plugin_slug() {
+    public function get_plugin_slug()
+    {
         return $this->plugin_slug;
     }
 
@@ -175,7 +182,8 @@ class BPVM_Wpva {
      *
      * @return    object    A single instance of this class.
      */
-    public static function get_instance() {
+    public static function get_instance()
+    {
 
         // If the single instance hasn't been set, set it now.
         if (null == self::$instance) {
@@ -195,7 +203,8 @@ class BPVM_Wpva {
      *                                       WPMU is disabled or plugin is
      *                                       activated on an individual blog.
      */
-    public static function activate($network_wide) {
+    public static function activate($network_wide)
+    {
 
         if (function_exists('is_multisite') && is_multisite()) {
 
@@ -229,7 +238,8 @@ class BPVM_Wpva {
      *                                       WPMU is disabled or plugin is
      *                                       deactivated on an individual blog.
      */
-    public static function deactivate($network_wide) {
+    public static function deactivate($network_wide)
+    {
 
         if (function_exists('is_multisite') && is_multisite()) {
 
@@ -260,7 +270,8 @@ class BPVM_Wpva {
      *
      * @param    int    $blog_id    ID of the new blog.
      */
-    public function activate_new_site($blog_id) {
+    public function activate_new_site($blog_id)
+    {
 
         if (1 !== did_action('wpmu_new_blog')) {
             return;
@@ -281,7 +292,8 @@ class BPVM_Wpva {
      *
      * @return   array|false    The blog ids, false if no matches.
      */
-    private static function get_blog_ids() {
+    private static function get_blog_ids()
+    {
 
         global $wpdb;
 
@@ -298,7 +310,8 @@ class BPVM_Wpva {
      *
      * @since    1.0.0
      */
-    private static function single_activate() {
+    private static function single_activate()
+    {
         // @TODO: Define activation functionality here
     }
 
@@ -307,7 +320,8 @@ class BPVM_Wpva {
      *
      * @since    1.0.0
      */
-    private static function single_deactivate() {
+    private static function single_deactivate()
+    {
         // @TODO: Define deactivation functionality here
     }
 
@@ -316,7 +330,8 @@ class BPVM_Wpva {
      *
      * @since    1.0.0
      */
-    public function load_plugin_textdomain() {
+    public function load_plugin_textdomain()
+    {
 
         $domain = $this->plugin_slug;
         $locale = apply_filters('plugin_locale', get_locale(), $domain);
@@ -331,8 +346,9 @@ class BPVM_Wpva {
      *
      * @since    1.0.0
      */
-    public function enqueue_styles() {
-        wp_enqueue_style($this->plugin_slug . '-plugin-styles', plugins_url('assets/css/public.css', __FILE__), array(), self::VERSION);
+    public function enqueue_styles()
+    {
+        wp_enqueue_style($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/css/frontend.css', [], self::VERSION);
     }
 
     /**
@@ -340,8 +356,8 @@ class BPVM_Wpva {
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts() {
-        wp_enqueue_script($this->plugin_slug . '-plugin-script', plugins_url('assets/js/public.js', __FILE__), array('jquery'), self::VERSION);
+    public function enqueue_scripts()
+    {
+        wp_enqueue_script($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/js/frontend.js', ['jquery'], self::VERSION);
     }
-
 }
