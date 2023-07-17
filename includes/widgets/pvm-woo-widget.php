@@ -41,10 +41,10 @@ function get_pvm_woo_icon_data()
     }
 
 
-    return array(
+    return [
         'pvm_like_thumb_html' => $pvm_like_thumb_html,
         'pvm_dislike_thumb_html' => $pvm_dislike_thumb_html
-    );
+    ];
 }
 
 function pvm_woo_filter_data($interval, $vote_type, $order, $limit)
@@ -186,23 +186,23 @@ class Pvm_Woo_Widget extends WP_Widget
         parent::__construct(
             'pvm_woo_widget',
             __('WooCommerce Voting Widget', 'bpvm_wpva'),
-            array(
+            [
                 'classname'     =>  'Pvm_Woo_Widget',
                 'description'    =>   __('Display Top Up/Down Voted Products In sidebar area', 'bpvm_wpva')
-            )
+            ]
         );
     }
 
     public function form($instance)
     {
 
-        $defaults = array(
+        $defaults = [
             'title'                              =>  __('Top Liked Products', 'bpvm_wpva'),
             'bwl_pvm_filter_type'    =>  '1_week',
             'bwl_pvm_display_front_filter'    =>  'on',
             'bwl_pvm_order_type'     => 'liked',
             'bwl_pvm_no_of_post'    =>  '5'
-        );
+        ];
 
         $instance = wp_parse_args((array) $instance, $defaults);
 
@@ -211,62 +211,53 @@ class Pvm_Woo_Widget extends WP_Widget
 ?>
 
 
-<p>
-  <label for="<?php echo $this->get_field_id('title') ?>"><?php _e('Title', 'bpvm_wpva'); ?></label>
-  <input type="text" class="widefat" id="<?php echo $this->get_field_id('title') ?>"
-    name="<?php echo $this->get_field_name('title') ?>" value="<?php echo esc_attr($title) ?>" />
-</p>
+        <p>
+            <label for="<?php echo $this->get_field_id('title') ?>"><?php _e('Title', 'bpvm_wpva'); ?></label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('title') ?>" name="<?php echo $this->get_field_name('title') ?>" value="<?php echo esc_attr($title) ?>" />
+        </p>
 
-<!-- Product Filter Type -->
+        <!-- Product Filter Type -->
 
-<p>
-  <label
-    for="<?php echo $this->get_field_id('bwl_pvm_filter_type'); ?>"><?php _e('Filter Type:', 'bpvm_wpva') ?></label>
-  <select id="<?php echo $this->get_field_id('bwl_pvm_filter_type'); ?>"
-    name="<?php echo $this->get_field_name('bwl_pvm_filter_type'); ?>" class="widefat" style="width:100%;">
-    <option value="1_day" <?php if ($instance['bwl_pvm_filter_type'] == '1_day') echo 'selected="selected"'; ?>>
-      <?php _e('Last 1 Day', 'bpvm_wpva'); ?></option>
-    <option value="1_week" <?php if ($instance['bwl_pvm_filter_type'] == '1_week') echo 'selected="selected"'; ?>>
-      <?php _e('Last 1 Week', 'bpvm_wpva'); ?> ( Default )</option>
-    <option value="1_month" <?php if ($instance['bwl_pvm_filter_type'] == '1_month') echo 'selected="selected"'; ?>>
-      <?php _e('Last 1 Month', 'bpvm_wpva'); ?></option>
-    <option value="6_month" <?php if ($instance['bwl_pvm_filter_type'] == '6_month') echo 'selected="selected"'; ?>>
-      <?php _e('Last 6 Month', 'bpvm_wpva'); ?></option>
-    <option value="count_all" <?php if ($instance['bwl_pvm_filter_type'] == 'count_all') echo 'selected="selected"'; ?>>
-      <?php _e('Count All', 'bpvm_wpva'); ?></option>
-  </select>
-</p>
+        <p>
+            <label for="<?php echo $this->get_field_id('bwl_pvm_filter_type'); ?>"><?php _e('Filter Type:', 'bpvm_wpva') ?></label>
+            <select id="<?php echo $this->get_field_id('bwl_pvm_filter_type'); ?>" name="<?php echo $this->get_field_name('bwl_pvm_filter_type'); ?>" class="widefat" style="width:100%;">
+                <option value="1_day" <?php if ($instance['bwl_pvm_filter_type'] == '1_day') echo 'selected="selected"'; ?>>
+                    <?php _e('Last 1 Day', 'bpvm_wpva'); ?></option>
+                <option value="1_week" <?php if ($instance['bwl_pvm_filter_type'] == '1_week') echo 'selected="selected"'; ?>>
+                    <?php _e('Last 1 Week', 'bpvm_wpva'); ?> ( Default )</option>
+                <option value="1_month" <?php if ($instance['bwl_pvm_filter_type'] == '1_month') echo 'selected="selected"'; ?>>
+                    <?php _e('Last 1 Month', 'bpvm_wpva'); ?></option>
+                <option value="6_month" <?php if ($instance['bwl_pvm_filter_type'] == '6_month') echo 'selected="selected"'; ?>>
+                    <?php _e('Last 6 Month', 'bpvm_wpva'); ?></option>
+                <option value="count_all" <?php if ($instance['bwl_pvm_filter_type'] == 'count_all') echo 'selected="selected"'; ?>>
+                    <?php _e('Count All', 'bpvm_wpva'); ?></option>
+            </select>
+        </p>
 
-<!-- Display Front End Filter  -->
-<p>
-  <label
-    for="<?php echo $this->get_field_id('bwl_pvm_display_front_filter'); ?>"><?php _e('Display Frontend Voting Filter', 'bpvm_wpva'); ?>:
-  </label>
-  <input id="<?php echo $this->get_field_id('bwl_pvm_display_front_filter'); ?>"
-    name="<?php echo $this->get_field_name('bwl_pvm_display_front_filter'); ?>" type="checkbox"
-    <?php checked($bwl_pvm_display_front_filter, 'on'); ?> />
-</p>
+        <!-- Display Front End Filter  -->
+        <p>
+            <label for="<?php echo $this->get_field_id('bwl_pvm_display_front_filter'); ?>"><?php _e('Display Frontend Voting Filter', 'bpvm_wpva'); ?>:
+            </label>
+            <input id="<?php echo $this->get_field_id('bwl_pvm_display_front_filter'); ?>" name="<?php echo $this->get_field_name('bwl_pvm_display_front_filter'); ?>" type="checkbox" <?php checked($bwl_pvm_display_front_filter, 'on'); ?> />
+        </p>
 
-<!-- Order Type -->
+        <!-- Order Type -->
 
-<p>
-  <label for="<?php echo $this->get_field_id('bwl_pvm_order_type'); ?>"><?php _e('Order Type:', 'bpvm_wpva') ?></label>
-  <select id="<?php echo $this->get_field_id('bwl_pvm_order_type'); ?>"
-    name="<?php echo $this->get_field_name('bwl_pvm_order_type'); ?>" class="widefat" style="width:100%;">
-    <option value="liked" <?php if ($instance['bwl_pvm_order_type'] == 'liked') echo 'selected="selected"'; ?>>
-      <?php _e('Liked', 'bpvm_wpva'); ?></option>
-    <option value="disliked" <?php if ($instance['bwl_pvm_order_type'] == 'disliked') echo 'selected="selected"'; ?>>
-      <?php _e('Disliked', 'bpvm_wpva'); ?></option>
-  </select>
-</p>
+        <p>
+            <label for="<?php echo $this->get_field_id('bwl_pvm_order_type'); ?>"><?php _e('Order Type:', 'bpvm_wpva') ?></label>
+            <select id="<?php echo $this->get_field_id('bwl_pvm_order_type'); ?>" name="<?php echo $this->get_field_name('bwl_pvm_order_type'); ?>" class="widefat" style="width:100%;">
+                <option value="liked" <?php if ($instance['bwl_pvm_order_type'] == 'liked') echo 'selected="selected"'; ?>>
+                    <?php _e('Liked', 'bpvm_wpva'); ?></option>
+                <option value="disliked" <?php if ($instance['bwl_pvm_order_type'] == 'disliked') echo 'selected="selected"'; ?>>
+                    <?php _e('Disliked', 'bpvm_wpva'); ?></option>
+            </select>
+        </p>
 
-<!-- Display No of Posts  -->
-<p>
-  <label for="<?php echo $this->get_field_id('bwl_pvm_no_of_post') ?>"><?php _e('No Of Posts', 'bpvm_wpva'); ?></label>
-  <input type="text" class="widefat" id="<?php echo $this->get_field_id('bwl_pvm_no_of_post') ?>"
-    name="<?php echo $this->get_field_name('bwl_pvm_no_of_post') ?>"
-    value="<?php echo esc_attr($bwl_pvm_no_of_post) ?>" />
-</p>
+        <!-- Display No of Posts  -->
+        <p>
+            <label for="<?php echo $this->get_field_id('bwl_pvm_no_of_post') ?>"><?php _e('No Of Posts', 'bpvm_wpva'); ?></label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('bwl_pvm_no_of_post') ?>" name="<?php echo $this->get_field_name('bwl_pvm_no_of_post') ?>" value="<?php echo esc_attr($bwl_pvm_no_of_post) ?>" />
+        </p>
 
 <?php
 
