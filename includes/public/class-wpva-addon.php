@@ -342,7 +342,7 @@ class BPVM_Wpva
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/css/frontend.css', [], self::VERSION);
+        wp_enqueue_style($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/styles/frontend.css', [], self::VERSION);
     }
 
     /**
@@ -352,6 +352,6 @@ class BPVM_Wpva
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/js/frontend.js', ['jquery'], self::VERSION);
+        wp_enqueue_script($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/scripts/frontend.js', ['jquery'], self::VERSION);
     }
 }
