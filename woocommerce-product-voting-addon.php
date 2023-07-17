@@ -16,23 +16,23 @@ if (!defined('WPINC')) {
 }
 
 define('BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_pvm_plugin_version'));
-define('BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE', '<b>BWL Pro Voting Manager</b> ');
-define('BPVMWPVA_ADDON_TITLE', '<b>WooCommerce Product Voting Addon</b>');
-define('BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION', '1.1.1'); // change plugin required version in here.
+define('BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE', 'BWL Pro Voting Manager');
+define('BPVMWPVA_ADDON_TITLE', 'WooCommerce Product Voting Addon');
+define('BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION', '1.3.0'); // change plugin required version in here.
 define('BPVMWPVA_ADDON_CURRENT_VERSION', '1.0.7'); // change plugin current version in here.
 
 define('BPVMWPVA_PATH', plugin_dir_path(__FILE__));
 define("BPVMWPVA_DIR", plugins_url() . '/woocommerce-product-voting-addon/');
 define("BPVMWPVA_UPDATER_SLUG", plugin_basename(__FILE__)); // change plugin current version in here.
 
-require_once(plugin_dir_path(__FILE__) . 'public/class-wpva-addon.php');
+require_once(BPVMWPVA_PATH . 'includes/public/class-wpva-addon.php');
 
-register_activation_hook(__FILE__, array('BPVM_Wpva', 'activate'));
-register_deactivation_hook(__FILE__, array('BPVM_Wpva', 'deactivate'));
+register_activation_hook(__FILE__, ['BPVM_Wpva', 'activate']);
+register_deactivation_hook(__FILE__, ['BPVM_Wpva', 'deactivate']);
 
-add_action('plugins_loaded', array('BPVM_Wpva', 'get_instance'));
+add_action('plugins_loaded', ['BPVM_Wpva', 'get_instance']);
 
 if (is_admin()) {
-    require_once(plugin_dir_path(__FILE__) . 'admin/class-wpva-addon-admin.php');
-    add_action('plugins_loaded', array('BPVM_Wpva_Admin', 'get_instance'));
+    require_once(BPVMWPVA_PATH . 'includes/admin/class-wpva-addon-admin.php');
+    add_action('plugins_loaded', ['BPVM_Wpva_Admin', 'get_instance']);
 }

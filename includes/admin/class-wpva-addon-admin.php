@@ -13,8 +13,8 @@ class BPVM_Wpva_Admin
         //@Description: First we need to check if KB Plugin & WooCommerce is activated or not. If not then we display a message and return false.
         //@Since: Version 1.0.5
 
-        if (!class_exists('BWL_Pro_Voting_Manager') || !class_exists('WooCommerce') || BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION < '1.1.0') {
-            add_action('admin_notices', array($this, 'wpva_version_update_admin_notice'));
+        if (!class_exists('BWL_Pro_Voting_Manager') || !class_exists('WooCommerce') || BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION < BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
+            add_action('admin_notices', [$this, 'wpva_version_update_admin_notice']);
             return false;
         }
 
@@ -23,7 +23,7 @@ class BPVM_Wpva_Admin
         $plugin = BPVM_Wpva::get_instance();
         $this->plugin_slug = $plugin->get_plugin_slug();
 
-        add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
+        add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
         $this->includeFiles();
 
         $post_types = 'product';
@@ -46,16 +46,11 @@ class BPVM_Wpva_Admin
     {
 
         echo '<div class="updated"><p>You need to download & install both '
-            . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank"> BWL Pro Voting Manager (Minimum Version 1.1.1)</a></b> && '
-            . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce Plugin</a></b>  '
-            . 'to use ' . BPVMWPVA_ADDON_TITLE . '.</p></div>';
+            . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE . '</a> (minimum ' . BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION . ')</b> and '
+            . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce</a></b> Plugins'
+            . ' to use <b>' . BPVMWPVA_ADDON_TITLE . '</b>.</p></div>';
     }
 
-    /**
-     * Register and enqueues public-facing JavaScript files.
-     *
-     * @since    1.0.0
-     */
     public function bkb_wpva_admin_enqueue_scripts($hook)
     {
 

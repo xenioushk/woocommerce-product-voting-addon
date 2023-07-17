@@ -11,41 +11,40 @@ class BPVM_Wpva
     private function __construct()
     {
 
-        if (class_exists('BWL_Pro_Voting_Manager') && class_exists('WooCommerce') && BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION > '1.1.0') {
+        if (class_exists('BWL_Pro_Voting_Manager') && class_exists('WooCommerce') && BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
 
             // Load plugin text domain
-            add_action('init', array($this, 'load_plugin_textdomain'));
+            add_action('init', [$this, 'load_plugin_textdomain']);
 
             // Load public-facing style sheet and JavaScript.
-            add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
-            add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+            add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
+            add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
 
 
-            add_filter('woocommerce_get_catalog_ordering_args', array($this, 'bpvm_add_postmeta_ordering_args'));
-            add_filter('woocommerce_default_catalog_orderby_options', array($this, 'bpvm_add_new_postmeta_orderby'));
-            add_filter('woocommerce_catalog_orderby', array($this, 'bpvm_add_new_postmeta_orderby'));
-            add_action('woocommerce_after_shop_loop_item', array($this, 'bpvm_shop_display_voting_meta'), 9);
+            add_filter('woocommerce_get_catalog_ordering_args', [$this, 'bpvm_add_postmeta_ordering_args']);
+            add_filter('woocommerce_default_catalog_orderby_options', [$this, 'bpvm_add_new_postmeta_orderby']);
+            add_filter('woocommerce_catalog_orderby', [$this, 'bpvm_add_new_postmeta_orderby']);
+            add_action('woocommerce_after_shop_loop_item', [$this, 'bpvm_shop_display_voting_meta'], 9);
 
             // This function has been added in version 1.0.2.
             // It counts and update all the products both like and dislike votes and update in to a post meta 'pvm_total_votes'.
-            //                        add_action('save_post_product', array( $this, 'wpva_update_post_meta') ); // update post meta.
+            //                        add_action('save_post_product', [ $this, 'wpva_update_post_meta') ); // update post meta.
 
-            $this->include_files();
+            $this->includeFiles();
         }
     }
 
     function wpva_update_total_votes()
     {
 
-
         $get_pvm_total_votes_update = get_option('pvm_total_votes_update');
 
         if ($get_pvm_total_votes_update != 1) {
 
-            $args = array(
+            $args = [
                 'post_type' => 'product',
                 'posts_per_page' => '-1'
-            );
+            ];
 
             $loop = new WP_Query($args);
 
@@ -81,7 +80,7 @@ class BPVM_Wpva
         }
     }
 
-    public function include_files()
+    public function includeFiles()
     {
         require_once(BPVMWPVA_PATH . 'includes/widgets/pvm-woo-widget.php');
     }
@@ -148,11 +147,11 @@ class BPVM_Wpva
 
         // Adjust the text as desired
 
-        $sortby['pvm_like_votes_count'] = __('Sort by Top Liked', 'bpvm_wpva');
-        $sortby['pvm_dislike_votes_count'] = __('Sort by Top Disliked', 'bpvm_wpva');
+        $sortby['pvm_like_votes_count'] = __('Sort by top liked', 'bpvm_wpva');
+        $sortby['pvm_dislike_votes_count'] = __('Sort by top disliked', 'bpvm_wpva');
 
-        $sortby['pvm_asc_total_vote'] = __('Sort by votes: Low to High', 'bpvm_wpva');
-        $sortby['pvm_desc_total_vote'] = __('Sort by votes: High to Low', 'bpvm_wpva');
+        $sortby['pvm_asc_total_vote'] = __('Sort by votes: low to high', 'bpvm_wpva');
+        $sortby['pvm_desc_total_vote'] = __('Sort by votes: high to low', 'bpvm_wpva');
 
         return $sortby;
     }
@@ -163,13 +162,8 @@ class BPVM_Wpva
         add_post_meta($post_id, 'pvm_dislike_votes_count', 0, true);
     }
 
-    /**
-     * Return the plugin slug.
-     *
-     * @since    1.0.0
-     *
-     * @return    Plugin slug variable.
-     */
+    // Return the plugin slug.
+
     public function get_plugin_slug()
     {
         return $this->plugin_slug;
