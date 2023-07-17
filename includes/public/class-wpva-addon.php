@@ -11,7 +11,11 @@ class BPVM_Wpva
     private function __construct()
     {
 
-        if (class_exists('BWL_Pro_Voting_Manager') && class_exists('WooCommerce') && BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
+        if (
+            class_exists('BWL_Pro_Voting_Manager') &&
+            class_exists('WooCommerce') &&
+            BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION
+        ) {
 
             // Load plugin text domain
             add_action('init', [$this, 'load_plugin_textdomain']);
@@ -19,7 +23,6 @@ class BPVM_Wpva
             // Load public-facing style sheet and JavaScript.
             add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
             add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
-
 
             add_filter('woocommerce_get_catalog_ordering_args', [$this, 'bpvm_add_postmeta_ordering_args']);
             add_filter('woocommerce_default_catalog_orderby_options', [$this, 'bpvm_add_new_postmeta_orderby']);
@@ -169,13 +172,7 @@ class BPVM_Wpva
         return $this->plugin_slug;
     }
 
-    /**
-     * Return an instance of this class.
-     *
-     * @since     1.0.0
-     *
-     * @return    object    A single instance of this class.
-     */
+
     public static function get_instance()
     {
 
@@ -187,16 +184,6 @@ class BPVM_Wpva
         return self::$instance;
     }
 
-    /**
-     * Fired when the plugin is activated.
-     *
-     * @since    1.0.0
-     *
-     * @param    boolean    $network_wide    True if WPMU superadmin uses
-     *                                       "Network Activate" action, false if
-     *                                       WPMU is disabled or plugin is
-     *                                       activated on an individual blog.
-     */
     public static function activate($network_wide)
     {
 
@@ -222,16 +209,7 @@ class BPVM_Wpva
         }
     }
 
-    /**
-     * Fired when the plugin is deactivated.
-     *
-     * @since    1.0.0
-     *
-     * @param    boolean    $network_wide    True if WPMU superadmin uses
-     *                                       "Network Deactivate" action, false if
-     *                                       WPMU is disabled or plugin is
-     *                                       deactivated on an individual blog.
-     */
+
     public static function deactivate($network_wide)
     {
 
@@ -257,13 +235,6 @@ class BPVM_Wpva
         }
     }
 
-    /**
-     * Fired when a new site is activated with a WPMU environment.
-     *
-     * @since    1.0.0
-     *
-     * @param    int    $blog_id    ID of the new blog.
-     */
     public function activate_new_site($blog_id)
     {
 
@@ -276,16 +247,6 @@ class BPVM_Wpva
         restore_current_blog();
     }
 
-    /**
-     * Get all blog ids of blogs in the current network that are:
-     * - not archived
-     * - not spam
-     * - not deleted
-     *
-     * @since    1.0.0
-     *
-     * @return   array|false    The blog ids, false if no matches.
-     */
     private static function get_blog_ids()
     {
 
@@ -299,31 +260,17 @@ class BPVM_Wpva
         return $wpdb->get_col($sql);
     }
 
-    /**
-     * Fired for each blog when the plugin is activated.
-     *
-     * @since    1.0.0
-     */
+
     private static function single_activate()
     {
         // @TODO: Define activation functionality here
     }
 
-    /**
-     * Fired for each blog when the plugin is deactivated.
-     *
-     * @since    1.0.0
-     */
     private static function single_deactivate()
     {
         // @TODO: Define deactivation functionality here
     }
 
-    /**
-     * Load the plugin text domain for translation.
-     *
-     * @since    1.0.0
-     */
     public function load_plugin_textdomain()
     {
 
@@ -335,21 +282,12 @@ class BPVM_Wpva
         $this->wpva_update_total_votes();
     }
 
-    /**
-     * Register and enqueue public-facing style sheet.
-     *
-     * @since    1.0.0
-     */
+
     public function enqueue_styles()
     {
         wp_enqueue_style($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/styles/frontend.css', [], self::VERSION);
     }
 
-    /**
-     * Register and enqueues public-facing JavaScript files.
-     *
-     * @since    1.0.0
-     */
     public function enqueue_scripts()
     {
         wp_enqueue_script($this->plugin_slug . '-frontend', BPVMWPVA_DIR . 'assets/scripts/frontend.js', ['jquery'], self::VERSION);

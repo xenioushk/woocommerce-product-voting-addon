@@ -65,7 +65,7 @@ class BPVM_Wpva_Admin
 
     public function enqueue_scripts()
     {
-        wp_register_script($this->plugin_slug . '-admin', BPVM_UVT_ADDON_DIR . 'assets/scripts/admin.js', ['jquery'], BPVM_Wpva::VERSION, TRUE);
+        wp_register_script($this->plugin_slug . '-admin', BPVMWPVA_DIR . 'assets/scripts/admin.js', ['jquery'], BPVMWPVA_ADDON_CURRENT_VERSION, TRUE);
         wp_localize_script(
             $this->plugin_slug . '-admin',
             'wpvaBpvmAdminData',
