@@ -70,7 +70,7 @@ class BPVM_Wpva_Admin
             $this->plugin_slug . '-admin',
             'wpvaBpvmAdminData',
             [
-                'product_id' => 14564197,
+                'product_id' => BPVMWPVA_CC_ID,
                 'installation' => get_option('wpva_bpvm_installation')
             ]
         );
