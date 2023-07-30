@@ -1,7 +1,6 @@
 <?php
 
 add_action("wp_ajax_wpva_bpvm_installation_counter", "wpvaBpvmAddInstallationData");
-add_action("wp_ajax_nopriv_wpva_bpvm_installation_counter", "wpvaBpvmAddInstallationData");
 
 function wpvaBpvmApiUrl()
 {
@@ -21,7 +20,8 @@ function wpvaBpvmAddInstallationData()
   $site_url = get_site_url();
   $product_id = BPVMWPVA_CC_ID; // change the id
   $ip = $_SERVER['REMOTE_ADDR'];
-  $requestUrl = $apiURL . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip";
+  $ver = BPVMWPVA_ADDON_CURRENT_VERSION;
+  $requestUrl = $apiURL . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip&ver=$ver";
 
   $output = wp_remote_get($requestUrl);
 
@@ -38,9 +38,9 @@ function wpvaBpvmAddInstallationData()
 
     $output_decode = json_decode($data, true);
 
-    if (isset($output_decode['status']) && $output_decode['status'] == 1) {
+    if (isset($output_decode['status']) && $output_decode['status'] != 0) {
 
-      update_option('wpva_bpvm_installation', '1'); // change the tag
+      update_option(BPVMWPVA_INSTALLATION_TAG, '1'); // change the tag
 
       $data = [
         'status' => $output_decode['status'],

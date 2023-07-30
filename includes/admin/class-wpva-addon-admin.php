@@ -71,7 +71,7 @@ class BPVM_Wpva_Admin
             'wpvaBpvmAdminData',
             [
                 'product_id' => BPVMWPVA_CC_ID,
-                'installation' => get_option('wpva_bpvm_installation')
+                'installation' => get_option(BPVMWPVA_INSTALLATION_TAG)
             ]
         );
     }
