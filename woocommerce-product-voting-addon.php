@@ -4,7 +4,7 @@
  * Plugin Name:    WooCommerce Product Voting Addon
  * Plugin URI:       https://bluewindlab.net/portfolio/woocommerce-product-voting-addon/
  * Description:     The Addon automatically added a voting interface below the WooCommerce products. User can quickly filter and easily sort the products based on votes. As a result, users can get a clear overview about the top voted and popular products.
- * Version:          1.0.9
+ * Version:          1.1.0
  * Author:           Md Mahbub Alam Khan
  * Author URI:     https://1.envato.market/bpvm-wp
  * Text Domain: bpvm_wpva
@@ -19,7 +19,7 @@ define('BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_pvm_plugin_ve
 define('BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE', 'BWL Pro Voting Manager');
 define('BPVMWPVA_ADDON_TITLE', 'WooCommerce Product Voting Addon');
 define('BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION', '1.3.0'); // change plugin required version in here.
-define('BPVMWPVA_ADDON_CURRENT_VERSION', '1.0.9'); // change plugin current version in here.
+define('BPVMWPVA_ADDON_CURRENT_VERSION', '1.1.0'); // change plugin current version in here.
 
 define('BPVMWPVA_PATH', plugin_dir_path(__FILE__));
 define("BPVMWPVA_DIR", plugins_url() . '/woocommerce-product-voting-addon/');
@@ -35,6 +35,7 @@ register_deactivation_hook(__FILE__, ['BPVM_Wpva', 'deactivate']);
 add_action('plugins_loaded', ['BPVM_Wpva', 'get_instance']);
 
 if (is_admin()) {
+
     require_once(BPVMWPVA_PATH . 'includes/admin/class-wpva-addon-admin.php');
     add_action('plugins_loaded', ['BPVM_Wpva_Admin', 'get_instance']);
 }
