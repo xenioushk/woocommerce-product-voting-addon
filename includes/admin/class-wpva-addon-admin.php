@@ -45,10 +45,11 @@ class BPVM_Wpva_Admin
     public function wpva_version_update_admin_notice()
     {
 
-        echo '<div class="updated"><p>You need to download & install both '
-            . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE . '</a> (minimum ' . BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION . ')</b> and '
-            . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce</a></b> Plugins'
-            . ' to use <b>' . BPVMWPVA_ADDON_TITLE . '</b>.</p></div>';
+        echo '<div class="notice notice-error">
+        <p><span class="dashicons dashicons-info-outline"></span> ' . esc_html__("You need to download & install", "bpvm_wpva") .
+            ' <b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE . '</a></b> ' . esc_html__("and", "bpvm_wpva") . ' '
+            . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce</a></b> '
+            . esc_html__("Plugins to use", "bpvm_wpva") . ' <b>' . BPVMWPVA_ADDON_TITLE . '</b>.</p></div>';
     }
 
     public function bkb_wpva_admin_enqueue_scripts($hook)
