@@ -1,0 +1,125 @@
+# Copyright (C) 2015 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Product Voting Addon\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2023-09-07 01:35+0300\n"
+"PO-Revision-Date: 2018-01-31 21:24+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-KeywordsList: _;__;_n;_x;_e;esc_attr__;esc_attr_e;esc_html__;"
+"esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: includes/admin/class-wpva-addon-admin.php:49
+msgid "You need to download & install"
+msgstr ""
+
+#: includes/admin/class-wpva-addon-admin.php:50
+msgid "and"
+msgstr ""
+
+#: includes/admin/class-wpva-addon-admin.php:52
+msgid "Plugins to use"
+msgstr ""
+
+#: includes/public/class-wpva-addon.php:153
+msgid "Sort by top liked"
+msgstr ""
+
+#: includes/public/class-wpva-addon.php:154
+msgid "Sort by top disliked"
+msgstr ""
+
+#: includes/public/class-wpva-addon.php:156
+msgid "Sort by votes: low to high"
+msgstr ""
+
+#: includes/public/class-wpva-addon.php:157
+msgid "Sort by votes: high to low"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:162
+#: includes/widgets/pvm-woo-widget.php:408
+msgid "Sorry, No Product Found!"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:188
+msgid "WooCommerce Voting Widget"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:191
+msgid "Display Top Up/Down Voted Products In sidebar area"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:200
+msgid "Top Liked Products"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:215
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:222
+msgid "Filter Type:"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:225
+#: includes/widgets/pvm-woo-widget.php:349
+msgid "Last 1 Day"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:227
+#: includes/widgets/pvm-woo-widget.php:350
+msgid "Last 1 Week"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:229
+#: includes/widgets/pvm-woo-widget.php:351
+msgid "Last 1 Month"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:231
+#: includes/widgets/pvm-woo-widget.php:352
+msgid "Last 6 Month"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:233
+#: includes/widgets/pvm-woo-widget.php:353
+msgid "Count All"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:239
+msgid "Display Frontend Voting Filter"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:247
+msgid "Order Type:"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:250
+msgid "Liked"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:252
+msgid "Disliked"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:258
+msgid "No Of Posts"
+msgstr ""
+
+#: includes/widgets/pvm-woo-widget.php:348
+msgid "Result Filter"
+msgstr ""
