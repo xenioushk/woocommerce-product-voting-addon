@@ -7,6 +7,7 @@
  * Version:          1.1.0
  * Author:           Md Mahbub Alam Khan
  * Author URI:     https://1.envato.market/bpvm-wp
+ * Requires at least: 6.0
  * Text Domain: bpvm_wpva
  * Domain Path: /languages/
  * 
@@ -28,7 +29,9 @@ define('BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_pvm_plugin_ve
 define('BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE', 'BWL Pro Voting Manager');
 define('BPVMWPVA_ADDON_TITLE', 'WooCommerce Product Voting Addon');
 define('BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION', '1.3.0'); // change plugin required version in here.
-define('BPVMWPVA_ADDON_CURRENT_VERSION', '1.1.0'); // change plugin current version in here.
+define('BPVMWPVA_ADDON_CURRENT_VERSION', '1.1.0'); // change plugin current version in here.    
+
+define("BPVMWPVA_ADDON_ROOT_FILE", "woocommerce-product-voting-addon.php"); // use for the meta info.
 
 define('BPVMWPVA_PATH', plugin_dir_path(__FILE__));
 define("BPVMWPVA_DIR", plugins_url() . '/woocommerce-product-voting-addon/');

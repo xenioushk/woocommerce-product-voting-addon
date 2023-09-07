@@ -79,11 +79,9 @@ class BPVM_Wpva_Admin
 
     public function includeFiles()
     {
-        if (is_admin()) {
-
-            include_once BPVMWPVA_PATH . 'includes/autoupdater/WpAutoUpdater.php';
-            include_once BPVMWPVA_PATH . 'includes/autoupdater/installer.php';
-            include_once BPVMWPVA_PATH . 'includes/autoupdater/updater.php';
-        }
+        include_once BPVMWPVA_PATH . 'includes/admin/autoupdater/WpAutoUpdater.php';
+        include_once BPVMWPVA_PATH . 'includes/admin/autoupdater/installer.php';
+        include_once BPVMWPVA_PATH . 'includes/admin/autoupdater/updater.php';
+        include_once BPVMWPVA_PATH . 'includes/admin/metainfo/BpvmWpvaMetaInfo.php';
     }
 }
