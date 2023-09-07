@@ -7,7 +7,7 @@
  * Version:          1.1.0
  * Author:           Md Mahbub Alam Khan
  * Author URI:     https://1.envato.market/bpvm-wp
- * Requires at least: 6.0
+ * Requires at least: 6.0+
  * Text Domain: bpvm_wpva
  * Domain Path: /languages/
  * 

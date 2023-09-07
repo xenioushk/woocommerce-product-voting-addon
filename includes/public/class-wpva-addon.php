@@ -263,12 +263,10 @@ class BPVM_Wpva
 
     private static function single_activate()
     {
-        // @TODO: Define activation functionality here
     }
 
     private static function single_deactivate()
     {
-        // @TODO: Define deactivation functionality here
     }
 
     public function load_plugin_textdomain()
