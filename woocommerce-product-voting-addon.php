@@ -6,7 +6,7 @@
  * Description:     This addon seamlessly integrates a voting interface directly beneath your WooCommerce product listings, enhancing the user experience. Users gain the ability to efficiently filter and effortlessly sort products based on their vote counts. Consequently, this feature grants users a concise and insightful overview of the most highly-rated and popular products in your store, facilitating informed purchasing decisions.
  * Version:          1.1.0
  * Author:           Md Mahbub Alam Khan
- * Author URI:     https://1.envato.market/bpvm-wp
+ * Author URI:     https://codecanyon.net/user/xenioushk
  * Requires at least: 6.0+
  * Text Domain: bpvm_wpva
  * Domain Path: /languages/
@@ -15,7 +15,7 @@
  * @package WooCommerce Product Voting Addon
  * @author Mahbub Alam Khan
  * @license GPL-2.0+
- * @link https://bluewindlab.net
+ * @link https://codecanyon.net/user/xenioushk
  * @copyright 2023 BlueWindLab
  * 
  */

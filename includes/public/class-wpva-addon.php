@@ -150,11 +150,11 @@ class BPVM_Wpva
 
         // Adjust the text as desired
 
-        $sortby['pvm_like_votes_count'] = __('Sort by top liked', 'bpvm_wpva');
-        $sortby['pvm_dislike_votes_count'] = __('Sort by top disliked', 'bpvm_wpva');
+        $sortby['pvm_like_votes_count'] = esc_html__("Sort by top liked", "bpvm_wpva");
+        $sortby['pvm_dislike_votes_count'] = esc_html__("Sort by top disliked", "bpvm_wpva");
 
-        $sortby['pvm_asc_total_vote'] = __('Sort by votes: low to high', 'bpvm_wpva');
-        $sortby['pvm_desc_total_vote'] = __('Sort by votes: high to low', 'bpvm_wpva');
+        $sortby['pvm_asc_total_vote'] = esc_html__("Sort by votes: low to high", "bpvm_wpva");
+        $sortby['pvm_desc_total_vote'] = esc_html__("Sort by votes: high to low", "bpvm_wpva");
 
         return $sortby;
     }

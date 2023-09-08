@@ -11,11 +11,6 @@ stages:
   - production
 
 before_script:
-  # - echo $CI_RUNNER_ID
-  # - echo $CI_RUNNER_REVISION
-  # - echo $CI_RUNNER_SHORT_TOKEN
-  # - echo $CI_RUNNER_TAGS
-  # - echo $CI_RUNNER_VERSION
   - sudo apt-get install -y lftp && sudo apt-get install -y npm && sudo apt-get install -y curl
 
 build:
@@ -31,7 +26,7 @@ build:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
     - export NVM_DIR="$HOME/.nvm"
     - source "$NVM_DIR/nvm.sh"
-    - nvm install 16.20.0
+    - nvm install 14.1.0 #Add/Update Node Version.
     - npm -v #NPM Version.
     - node -v #"Node Version."
     - echo "Installing Packages."

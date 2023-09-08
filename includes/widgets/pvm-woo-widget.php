@@ -159,7 +159,7 @@ function bpvm_get_woo_product_data()
 
     else :
 
-        $pvm_voted_post_string = "<p>" . __("Sorry, No Product Found!", 'bpvm_wpva') . "</p>";
+        $pvm_voted_post_string = "<p>" . esc_html__("Sorry, No Product Found!", "bpvm_wpva") . "</p>";
 
     endif;
 
@@ -185,10 +185,10 @@ class Pvm_Woo_Widget extends WP_Widget
 
         parent::__construct(
             'pvm_woo_widget',
-            __('WooCommerce Voting Widget', 'bpvm_wpva'),
+            esc_html__("WooCommerce Voting Widget", "bpvm_wpva"),
             [
                 'classname'     =>  'Pvm_Woo_Widget',
-                'description'    =>   __('Display Top Up/Down Voted Products In sidebar area', 'bpvm_wpva')
+                'description'    =>   esc_html__("Display Top Up/Down Voted Products In sidebar area", "bpvm_wpva")
             ]
         );
     }
@@ -197,7 +197,7 @@ class Pvm_Woo_Widget extends WP_Widget
     {
 
         $defaults = [
-            'title'                              =>  __('Top Liked Products', 'bpvm_wpva'),
+            'title'                              =>  esc_html__("Top Liked Products", "bpvm_wpva"),
             'bwl_pvm_filter_type'    =>  '1_week',
             'bwl_pvm_display_front_filter'    =>  'on',
             'bwl_pvm_order_type'     => 'liked',
@@ -212,31 +212,31 @@ class Pvm_Woo_Widget extends WP_Widget
 
 
         <p>
-            <label for="<?php echo $this->get_field_id('title') ?>"><?php _e('Title', 'bpvm_wpva'); ?></label>
+            <label for="<?php echo $this->get_field_id('title') ?>"><?php esc_html_e("Title", "bpvm_wpva"); ?></label>
             <input type="text" class="widefat" id="<?php echo $this->get_field_id('title') ?>" name="<?php echo $this->get_field_name('title') ?>" value="<?php echo esc_attr($title) ?>" />
         </p>
 
         <!-- Product Filter Type -->
 
         <p>
-            <label for="<?php echo $this->get_field_id('bwl_pvm_filter_type'); ?>"><?php _e('Filter Type:', 'bpvm_wpva') ?></label>
+            <label for="<?php echo $this->get_field_id('bwl_pvm_filter_type'); ?>"><?php esc_html_e("Filter Type:", "bpvm_wpva") ?></label>
             <select id="<?php echo $this->get_field_id('bwl_pvm_filter_type'); ?>" name="<?php echo $this->get_field_name('bwl_pvm_filter_type'); ?>" class="widefat" style="width:100%;">
                 <option value="1_day" <?php if ($instance['bwl_pvm_filter_type'] == '1_day') echo 'selected="selected"'; ?>>
-                    <?php _e('Last 1 Day', 'bpvm_wpva'); ?></option>
+                    <?php esc_html_e("Last 1 Day", "bpvm_wpva"); ?></option>
                 <option value="1_week" <?php if ($instance['bwl_pvm_filter_type'] == '1_week') echo 'selected="selected"'; ?>>
-                    <?php _e('Last 1 Week', 'bpvm_wpva'); ?> ( Default )</option>
+                    <?php esc_html_e("Last 1 Week", "bpvm_wpva"); ?> ( Default )</option>
                 <option value="1_month" <?php if ($instance['bwl_pvm_filter_type'] == '1_month') echo 'selected="selected"'; ?>>
-                    <?php _e('Last 1 Month', 'bpvm_wpva'); ?></option>
+                    <?php esc_html_e("Last 1 Month", "bpvm_wpva"); ?></option>
                 <option value="6_month" <?php if ($instance['bwl_pvm_filter_type'] == '6_month') echo 'selected="selected"'; ?>>
-                    <?php _e('Last 6 Month', 'bpvm_wpva'); ?></option>
+                    <?php esc_html_e("Last 6 Month", "bpvm_wpva"); ?></option>
                 <option value="count_all" <?php if ($instance['bwl_pvm_filter_type'] == 'count_all') echo 'selected="selected"'; ?>>
-                    <?php _e('Count All', 'bpvm_wpva'); ?></option>
+                    <?php esc_html_e("Count All", "bpvm_wpva"); ?></option>
             </select>
         </p>
 
         <!-- Display Front End Filter  -->
         <p>
-            <label for="<?php echo $this->get_field_id('bwl_pvm_display_front_filter'); ?>"><?php _e('Display Frontend Voting Filter', 'bpvm_wpva'); ?>:
+            <label for="<?php echo $this->get_field_id('bwl_pvm_display_front_filter'); ?>"><?php esc_html_e("Display Frontend Voting Filter", "bpvm_wpva"); ?>:
             </label>
             <input id="<?php echo $this->get_field_id('bwl_pvm_display_front_filter'); ?>" name="<?php echo $this->get_field_name('bwl_pvm_display_front_filter'); ?>" type="checkbox" <?php checked($bwl_pvm_display_front_filter, 'on'); ?> />
         </p>
@@ -244,18 +244,18 @@ class Pvm_Woo_Widget extends WP_Widget
         <!-- Order Type -->
 
         <p>
-            <label for="<?php echo $this->get_field_id('bwl_pvm_order_type'); ?>"><?php _e('Order Type:', 'bpvm_wpva') ?></label>
+            <label for="<?php echo $this->get_field_id('bwl_pvm_order_type'); ?>"><?php esc_html_e("Order Type:", "bpvm_wpva") ?></label>
             <select id="<?php echo $this->get_field_id('bwl_pvm_order_type'); ?>" name="<?php echo $this->get_field_name('bwl_pvm_order_type'); ?>" class="widefat" style="width:100%;">
                 <option value="liked" <?php if ($instance['bwl_pvm_order_type'] == 'liked') echo 'selected="selected"'; ?>>
-                    <?php _e('Liked', 'bpvm_wpva'); ?></option>
+                    <?php esc_html_e("Liked", "bpvm_wpva"); ?></option>
                 <option value="disliked" <?php if ($instance['bwl_pvm_order_type'] == 'disliked') echo 'selected="selected"'; ?>>
-                    <?php _e('Disliked', 'bpvm_wpva'); ?></option>
+                    <?php esc_html_e("Disliked", "bpvm_wpva"); ?></option>
             </select>
         </p>
 
         <!-- Display No of Posts  -->
         <p>
-            <label for="<?php echo $this->get_field_id('bwl_pvm_no_of_post') ?>"><?php _e('No Of Posts', 'bpvm_wpva'); ?></label>
+            <label for="<?php echo $this->get_field_id('bwl_pvm_no_of_post') ?>"><?php esc_html_e("No Of Posts", "bpvm_wpva"); ?></label>
             <input type="text" class="widefat" id="<?php echo $this->get_field_id('bwl_pvm_no_of_post') ?>" name="<?php echo $this->get_field_name('bwl_pvm_no_of_post') ?>" value="<?php echo esc_attr($bwl_pvm_no_of_post) ?>" />
         </p>
 
@@ -345,12 +345,12 @@ class Pvm_Woo_Widget extends WP_Widget
             if ($bwl_pvm_display_front_filter == "on") {
 
                 $front_end_filter_html .= '<p class="pvm-front-end-filter-container"><select name="pvm_front_end_filter" class="pvm_front_end_filter" data-filter_id="' . $woo_pvm_widget_id . '" data-vote_type="' . $vote_type . '" data-order="' . $order . '" data-limit="' . $limit . '">
-                    <option value="1_week">' . __('Result Filter', 'bpvm_wpva') . '</option>
-                    <option value="1_day">' . __('Last 1 Day', 'bpvm_wpva') . '</option>
-                    <option value="1_week">' . __('Last 1 Week', 'bpvm_wpva') . '</option>                          
-                    <option value="1_month">' . __('Last 1 Month', 'bpvm_wpva') . '</option>                         
-                    <option value="6_month">' . __('Last 6 Month', 'bpvm_wpva') . '</option>           
-                    <option value="count_all">' . __('Count All', 'bpvm_wpva') . '</option>
+                    <option value="1_week">' . esc_html__("Result Filter", "bpvm_wpva") . '</option>
+                    <option value="1_day">' . esc_html__("Last 1 Day", "bpvm_wpva") . '</option>
+                    <option value="1_week">' . esc_html__("Last 1 Week", "bpvm_wpva") . '</option>                          
+                    <option value="1_month">' . esc_html__("Last 1 Month", "bpvm_wpva") . '</option>                         
+                    <option value="6_month">' . esc_html__("Last 6 Month", "bpvm_wpva") . '</option>           
+                    <option value="count_all">' . esc_html__("Count All", "bpvm_wpva") . '</option>
                 </select></p>';
             }
             // Get Icon data Infomration.
@@ -405,7 +405,7 @@ class Pvm_Woo_Widget extends WP_Widget
 
         else :
 
-            $pvm_voted_post_string = "<p>" . __("Sorry, No Product Found!", 'bpvm_wpva') . "</p>";
+            $pvm_voted_post_string = "<p>" . esc_html__("Sorry, No Product Found!", "bpvm_wpva") . "</p>";
 
         endif;
 

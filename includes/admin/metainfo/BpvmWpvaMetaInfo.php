@@ -19,17 +19,17 @@ class BpvmWpvaMetaInfo
 
       $additionalLinks = [
         [
-          'title' => __('Docs', 'bpvm_wpva'),
+          'title' => esc_html__("Docs", "bpvm_wpva"),
           'url' => 'https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/index.html',
           'nt' => 1
         ],
         [
-          'title' =>  '<span class="dashicons dashicons-editor-help"></span>' . __('Support', 'bpvm_wpva'),
+          'title' => esc_html__("Support", "bpvm_wpva"),
           'url' => "https://codecanyon.net/item/bwl-pro-voting-manager/7616885/support",
           'nt' => 1
         ],
         [
-          'title' => '<span class="dashicons dashicons-youtube"></span>' . __('Tutorials', 'bpvm_wpva'),
+          'title' => esc_html__("Tutorials", "bpvm_wpva"),
           'url' => BPVM_YOUTUBE_PLAYLIST,
           'nt' => 1
         ]
