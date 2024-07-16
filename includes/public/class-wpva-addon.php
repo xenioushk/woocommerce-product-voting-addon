@@ -14,7 +14,8 @@ class BPVM_Wpva
         if (
             class_exists('BWL_Pro_Voting_Manager') &&
             class_exists('WooCommerce') &&
-            BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION
+            BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION &&
+            BPVMWPVA_PARENT_PLUGIN_PURCHASE_STATUS == 1
         ) {
 
             // Load plugin text domain

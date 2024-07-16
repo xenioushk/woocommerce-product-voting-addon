@@ -10,11 +10,29 @@ class BPVM_Wpva_Admin
     private function __construct()
     {
 
-        //@Description: First we need to check if KB Plugin & WooCommerce is activated or not. If not then we display a message and return false.
-        //@Since: Version 1.0.5
+        /**
+         * First we need to check if KB Plugin & WooCommerce is activated or not. 
+         * If not then we display a message and return false.
+         * @since: 1.0.5
+         * @return bool
+         */
 
-        if (!class_exists('BWL_Pro_Voting_Manager') || !class_exists('WooCommerce') || BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION < BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
-            add_action('admin_notices', [$this, 'wpva_version_update_admin_notice']);
+        if (
+            !class_exists('BWL_Pro_Voting_Manager')
+            || !class_exists('WooCommerce')
+            || BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION < BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION
+        ) {
+            add_action('admin_notices', [$this, 'wpvaVersionUpdateNotice']);
+            return false;
+        }
+
+        /**
+         * Check the parent plugin purchase status.
+         * @since: 1.0.5
+         */
+
+        if (BPVMWPVA_PARENT_PLUGIN_PURCHASE_STATUS == 0) {
+            add_action('admin_notices', array($this, 'wpvaPurchaseVerificationNotice'));
             return false;
         }
 
@@ -40,16 +58,33 @@ class BPVM_Wpva_Admin
         return self::$instance;
     }
 
-    //Version Manager:  Update Checking
+    /**
+     * Parent plugin requirement notice
+     * @since: 1.0
+     */
 
-    public function wpva_version_update_admin_notice()
+    public function wpvaVersionUpdateNotice()
     {
-
         echo '<div class="notice notice-error">
         <p><span class="dashicons dashicons-info-outline"></span> ' . esc_html__("You need to download & install", "bpvm_wpva") .
-            ' <b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE . '</a></b> ' . esc_html__("and", "bpvm_wpva") . ' '
+            ' <b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE . '</a></b> '
+            . esc_html__("and", "bpvm_wpva") . ' '
             . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce</a></b> '
             . esc_html__("Plugins to use", "bpvm_wpva") . ' <b>' . BPVMWPVA_ADDON_TITLE . '</b>.</p></div>';
+    }
+
+    /**
+     * Parent plugin activation notice
+     * @since: 1.1.2
+     */
+
+    public function wpvaPurchaseVerificationNotice()
+    {
+        $licensePage = admin_url("admin.php?page=bpvm-license");
+
+        echo '<div class="updated"><p>You need to <a href="' . $licensePage . '">activate</a> '
+            . '<b>' . BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE . '</b> '
+            . 'to use <b>' . BPVMWPVA_ADDON_TITLE . '</b>.</p></div>';
     }
 
     public function bkb_wpva_admin_enqueue_scripts($hook)
