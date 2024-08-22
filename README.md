@@ -1,4 +1,4 @@
-## User Vote Tracker - Pro Voting Manager Addon
+## WooCommerce Product Voting Addon
 
 This addon seamlessly integrates a voting interface directly beneath your WooCommerce product listings, enhancing the user experience. Users gain the ability to efficiently filter and effortlessly sort products based on their vote counts. Consequently, this feature grants users a concise and insightful overview of the most highly-rated and popular products in your store, facilitating informed purchasing decisions.
 
