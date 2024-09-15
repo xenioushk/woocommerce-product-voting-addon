@@ -28,31 +28,33 @@ You need at least WordPress version 4.8+ installed for this plugin to work prope
 
 2. Now, upload the `woocommerce-product-voting-addon.zip` file.
 
-![Upload the addon](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/installation/2.jpg)
+   ![Upload the addon](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/installation/2.jpg)
 
 3. Once plugin successfully uploaded in your server you will get an message to activate it. Click on `Activate Plugin` Link and plugin will be ready to use.
 
 4. After activating plugins, you will redirect in plugins section of wp-admin panel and show new installed plugins information in there.
+
    ![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/installation/3.jpg)
 
 ## How to use
 
 - Once you finish the installation process, Addon will automatically add a voting interface for all products. You will also get **four new sorting options** in the WooCommerce default sorting drop-down select box, like the following image.
 
-![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/operate/02_custom_product_filter.jpg)
+  ![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/operate/02_custom_product_filter.jpg)
 
 - But, You can control display of voting interface using bulk/quick edit.
 
-![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/operate/06_quick_bulk_edit.jpg)
+  ![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/operate/06_quick_bulk_edit.jpg)
 
 ## Widget
 
 - Addon comes with built-in widget to display top voted products. Go to WordPress `Admin Panel>Appearance> widgets section`. There you will get the
   **WooCommerce Voting Widget**.
 
-![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/operate/03_woo_vote_widget_1.jpg)
+  ![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/operate/03_woo_vote_widget_1.jpg)
 
 - Configure it according to your need.
+
   ![Woocommerce product voting manager](https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/wpva/img/operate/04_woo_vote_widget_2.jpg)
 
 **Widget output**
