@@ -4,7 +4,7 @@
  * Plugin Name:    WooCommerce Product Voting Addon
  * Plugin URI:       https://bluewindlab.net/portfolio/woocommerce-product-voting-addon/
  * Description:     This addon seamlessly integrates a voting interface directly beneath your WooCommerce product listings, enhancing the user experience. Users gain the ability to efficiently filter and effortlessly sort products based on their vote counts. Consequently, this feature grants users a concise and insightful overview of the most highly-rated and popular products in your store, facilitating informed purchasing decisions.
- * Version:          1.1.2
+ * Version:          1.1.3
  * Author:           Md Mahbub Alam Khan
  * Author URI:     https://codecanyon.net/user/xenioushk
  * Requires at least: 6.0+
@@ -16,7 +16,7 @@
  * @author Mahbub Alam Khan
  * @license GPL-2.0+
  * @link https://codecanyon.net/user/xenioushk
- * @copyright 2023 BlueWindLab
+ * @copyright 2024 BlueWindLab
  * 
  */
 
@@ -29,7 +29,7 @@ define('BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_pvm_plugin_ve
 define('BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE', 'BWL Pro Voting Manager');
 define('BPVMWPVA_ADDON_TITLE', 'WooCommerce Product Voting Addon');
 define('BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION', '1.3.0'); // change plugin required version in here.
-define('BPVMWPVA_ADDON_CURRENT_VERSION', '1.1.2'); // change plugin current version in here.    
+define('BPVMWPVA_ADDON_CURRENT_VERSION', '1.1.3'); // change plugin current version in here.    
 
 define("BPVMWPVA_ADDON_ROOT_FILE", "woocommerce-product-voting-addon.php"); // use for the meta info.
 

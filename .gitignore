@@ -5,4 +5,4 @@ composer.lock
 *.map
 *.hot-update.js
 *.hot-update.json
- .DS_Store
+.DS_Store
