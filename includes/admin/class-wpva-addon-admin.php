@@ -13,12 +13,12 @@ class BPVM_Wpva_Admin
         /**
          * First we need to check if KB Plugin & WooCommerce is activated or not. 
          * If not then we display a message and return false.
+         *
          * @since: 1.0.5
          * @return bool
          */
 
-        if (
-            !class_exists('BWL_Pro_Voting_Manager')
+        if (!class_exists('BPVMWP\\Init')
             || !class_exists('WooCommerce')
             || BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION < BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION
         ) {
@@ -28,6 +28,7 @@ class BPVM_Wpva_Admin
 
         /**
          * Check the parent plugin purchase status.
+         *
          * @since: 1.0.5
          */
 
@@ -60,9 +61,9 @@ class BPVM_Wpva_Admin
 
     /**
      * Parent plugin requirement notice
+     *
      * @since: 1.0
      */
-
     public function wpvaVersionUpdateNotice()
     {
         echo '<div class="notice notice-error">
@@ -75,9 +76,9 @@ class BPVM_Wpva_Admin
 
     /**
      * Parent plugin activation notice
+     *
      * @since: 1.1.2
      */
-
     public function wpvaPurchaseVerificationNotice()
     {
         $licensePage = admin_url("admin.php?page=bpvm-license");
@@ -101,7 +102,7 @@ class BPVM_Wpva_Admin
 
     public function enqueue_scripts()
     {
-        wp_register_script($this->plugin_slug . '-admin', BPVMWPVA_DIR . 'assets/scripts/admin.js', ['jquery'], BPVMWPVA_ADDON_CURRENT_VERSION, TRUE);
+        wp_register_script($this->plugin_slug . '-admin', BPVMWPVA_DIR . 'assets/scripts/admin.js', ['jquery'], BPVMWPVA_ADDON_CURRENT_VERSION, true);
         wp_localize_script(
             $this->plugin_slug . '-admin',
             'wpvaBpvmAdminData',

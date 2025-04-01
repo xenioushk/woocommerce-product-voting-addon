@@ -11,11 +11,10 @@ class BPVM_Wpva
     private function __construct()
     {
 
-        if (
-            class_exists('BWL_Pro_Voting_Manager') &&
-            class_exists('WooCommerce') &&
-            BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION &&
-            BPVMWPVA_PARENT_PLUGIN_PURCHASE_STATUS == 1
+        if (class_exists('BPVMWP\\Init') 
+            && class_exists('WooCommerce') 
+            && BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION 
+            && BPVMWPVA_PARENT_PLUGIN_PURCHASE_STATUS == 1
         ) {
 
             // Load plugin text domain
@@ -86,7 +85,7 @@ class BPVM_Wpva
 
     public function includeFiles()
     {
-        require_once(BPVMWPVA_PATH . 'includes/widgets/pvm-woo-widget.php');
+        include_once BPVMWPVA_PATH . 'includes/widgets/pvm-woo-widget.php';
     }
 
     function bpvm_shop_display_voting_meta()
@@ -113,33 +112,33 @@ class BPVM_Wpva
         switch ($orderby_value) {
 
                 // Name your sortby key whatever you'd like; must correspond to the $sortby in the next function
-            case 'pvm_like_votes_count':
-                $sort_args['orderby'] = 'meta_value_num';
-                // Sort by meta_value because we're using alphabetic sorting
-                $sort_args['order'] = 'DESC';
-                $sort_args['meta_key'] = 'pvm_like_votes_count';
-                break;
+        case 'pvm_like_votes_count':
+            $sort_args['orderby'] = 'meta_value_num';
+            // Sort by meta_value because we're using alphabetic sorting
+            $sort_args['order'] = 'DESC';
+            $sort_args['meta_key'] = 'pvm_like_votes_count';
+            break;
 
-            case 'pvm_dislike_votes_count':
-                $sort_args['orderby'] = 'meta_value_num';
-                // We use meta_value_num here because points are a number and we want to sort in numerical order
-                $sort_args['order'] = 'DESC';
-                $sort_args['meta_key'] = 'pvm_dislike_votes_count';
-                break;
+        case 'pvm_dislike_votes_count':
+            $sort_args['orderby'] = 'meta_value_num';
+            // We use meta_value_num here because points are a number and we want to sort in numerical order
+            $sort_args['order'] = 'DESC';
+            $sort_args['meta_key'] = 'pvm_dislike_votes_count';
+            break;
 
-            case 'pvm_asc_total_vote':
-                $sort_args['orderby'] = 'meta_value_num';
-                // Sort by meta_value because we're using alphabetic sorting
-                $sort_args['order'] = 'ASC';
-                $sort_args['meta_key'] = 'pvm_total_votes';
-                break;
+        case 'pvm_asc_total_vote':
+            $sort_args['orderby'] = 'meta_value_num';
+            // Sort by meta_value because we're using alphabetic sorting
+            $sort_args['order'] = 'ASC';
+            $sort_args['meta_key'] = 'pvm_total_votes';
+            break;
 
-            case 'pvm_desc_total_vote':
-                $sort_args['orderby'] = 'meta_value_num';
-                // Sort by meta_value because we're using alphabetic sorting
-                $sort_args['order'] = 'DESC';
-                $sort_args['meta_key'] = 'pvm_total_votes';
-                break;
+        case 'pvm_desc_total_vote':
+            $sort_args['orderby'] = 'meta_value_num';
+            // Sort by meta_value because we're using alphabetic sorting
+            $sort_args['order'] = 'DESC';
+            $sort_args['meta_key'] = 'pvm_total_votes';
+            break;
         }
 
         return $sort_args;
