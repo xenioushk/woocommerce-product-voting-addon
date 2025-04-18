@@ -7,21 +7,27 @@
  * Version:          2.0.0
  * Author:           Md Mahbub Alam Khan
  * Author URI:     https://codecanyon.net/user/xenioushk
- * Requires at least: 6.0+
+ * WP Requires at least: 6.0+
  * Text Domain: bpvm_wpva
  * Domain Path: /languages/
  *
- * @package   WooCommerce Product Voting Addon
+ * @package   WPVAADDON
  * @author    Mahbub Alam Khan
  * @license   GPL-2.0+
  * @link      https://codecanyon.net/user/xenioushk
  * @copyright 2025 BlueWindLab
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-    die;
+namespace WPVAADDON;
+
+// security check.
+defined( 'ABSPATH' ) || die( 'Unauthorized access' );
+
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
 }
+
+return;
 
 define( 'BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION', get_option( 'bwl_pvm_plugin_version' ) );
 define( 'BPVMWPVA_ADDON_PARENT_PLUGIN_TITLE', 'BWL Pro Voting Manager' );
