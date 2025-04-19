@@ -1,5 +1,4 @@
 <?php
-
 namespace WPVAADDON\Callbacks\AdminAjaxHandlers;
 
 use WPVAADDON\Traits\PluginInstallationTraits;

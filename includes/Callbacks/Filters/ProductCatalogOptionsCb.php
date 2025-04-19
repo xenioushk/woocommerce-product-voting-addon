@@ -1,8 +1,6 @@
 <?php
 namespace WPVAADDON\Callbacks\Filters;
 
-use WPVAADDON\Helpers\PluginConstants;
-
 /**
  * Class for registering the product tab.
  *
@@ -12,7 +10,6 @@ use WPVAADDON\Helpers\PluginConstants;
  */
 class ProductCatalogOptionsCb {
 
-
 	/**
 	 * Get the product catalog options.
 	 *
@@ -21,8 +18,6 @@ class ProductCatalogOptionsCb {
 	 * @return array
 	 */
 	public function get_options( $sortby ) {
-
-		// Adjust the text as desired
 
 		$sortby['pvm_like_votes_count']    = esc_html__( 'Sort by top liked', 'bpvm_wpva' );
 		$sortby['pvm_dislike_votes_count'] = esc_html__( 'Sort by top disliked', 'bpvm_wpva' );

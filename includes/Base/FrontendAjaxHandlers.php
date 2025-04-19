@@ -1,5 +1,4 @@
 <?php
-
 namespace WPVAADDON\Base;
 
 use Xenioushk\BwlPluginApi\Api\AjaxHandlers\AjaxHandlersApi;

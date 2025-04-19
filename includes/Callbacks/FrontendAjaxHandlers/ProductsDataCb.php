@@ -1,11 +1,10 @@
 <?php
-
 namespace WPVAADDON\Callbacks\FrontendAjaxHandlers;
 
 use WPVAADDON\Helpers\WpvaHelpers;
 
 /**
- * Class for plugin installation callback.
+ * Class for WooCommerce products data callback.
  *
  * @package WPVAADDON
  */
@@ -18,8 +17,8 @@ class ProductsDataCb {
 
 		$interval  = $_POST['interval'];
 		$vote_type = $_POST['vote_type']; // $vote_type == $bwl_pvm_order_type
-		$order     = $_POST['order'];
-		$limit     = $_POST['limit'];
+		$order     = $_POST['order'] ?? 'desc';
+		$limit     = $_POST['limit'] ?? 10;
 
 		$query_results = WpvaHelpers::pvm_woo_filter_data( $interval, $vote_type, $order, $limit );
 

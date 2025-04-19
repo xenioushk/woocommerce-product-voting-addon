@@ -1,6 +1,8 @@
 <?php
 namespace WPVAADDON\Helpers;
 
+use WPVAADDON\Helpers\PluginConstants;
+
 /**
  * Class for plugin helpers.
  *
@@ -8,37 +10,22 @@ namespace WPVAADDON\Helpers;
  */
 class WpvaHelpers {
 
+    /**
+     * Get the voting icons.
+     *
+     * @return array
+     */
 	public static function get_pvm_woo_icon_data() {
 
-        $pvm_data = get_option( 'bwl_pvm_options' );
+        $pvm_data = PluginConstants::$plugin_options;
 
-        // Add Custom Icon For Like Button
+        // Like Button Icon
+        $pvm_like_thumb_icon = $pvm_data['pvm_like_thumb_icon'] ?? 'fa-thumbs-o-up';
+        $pvm_like_thumb_html = '<i class="fa ' . $pvm_like_thumb_icon . ' icon_like_color"></i>';
 
-		if ( isset( $pvm_data['pvm_like_thumb_icon'] ) && $pvm_data['pvm_like_thumb_icon'] != '' ) {
-
-            $pvm_like_thumb_icon = $pvm_data['pvm_like_thumb_icon'];
-
-            $pvm_like_thumb_html = '<i class="fa ' . $pvm_like_thumb_icon . ' icon_like_color"></i>';
-		} else {
-
-            $pvm_like_thumb_icon = 'fa-thumbs-o-up';
-
-            $pvm_like_thumb_html = '<i class="fa ' . $pvm_like_thumb_icon . ' icon_like_color"></i>';
-		}
-
-        // Add Custom Icon For Dislike Button
-
-		if ( isset( $pvm_data['pvm_dislike_thumb_icon'] ) && $pvm_data['pvm_dislike_thumb_icon'] != '' ) {
-
-            $pvm_dislike_thumb_icon = $pvm_data['pvm_dislike_thumb_icon'];
-
-            $pvm_dislike_thumb_html = '<i class="fa ' . $pvm_dislike_thumb_icon . ' icon_dislike_color"></i>';
-		} else {
-
-            $pvm_dislike_thumb_icon = 'fa-thumbs-o-down';
-
-            $pvm_dislike_thumb_html = '<i class="fa ' . $pvm_dislike_thumb_icon . ' icon_dislike_color"></i>';
-		}
+        // Dislike Button Icon
+        $pvm_dislike_thumb_icon = $pvm_data['pvm_dislike_thumb_icon'] ?? 'fa-thumbs-o-down';
+        $pvm_dislike_thumb_html = '<i class="fa ' . $pvm_dislike_thumb_icon . ' icon_dislike_color"></i>';
 
         return [
             'pvm_like_thumb_html'    => $pvm_like_thumb_html,
@@ -46,6 +33,16 @@ class WpvaHelpers {
         ];
 	}
 
+    /**
+     * Get the WooCommerce filter data.
+     *
+     * @param string $interval The interval.
+     * @param string $vote_type The vote type.
+     * @param string $order The order.
+     * @param int    $limit The limit.
+     *
+     * @return array
+     */
 	public static function pvm_woo_filter_data( $interval, $vote_type, $order, $limit ) {
 
         global $wpdb;
@@ -86,7 +83,7 @@ class WpvaHelpers {
                                 " . $wpdb->prefix . "bpvm_summary.vote_date BETWEEN now() - interval 1 day AND now() GROUP BY `postid` ORDER BY tv {$order} limit 0, {$limit}";
 		} else {
 
-            // // 1 Week  interval from current date. ( Default )
+            // 1 Week  interval from current date. ( Default )
 
             $query = 'SELECT postid, SUM(`total_votes`) AS tv FROM `' . $wpdb->prefix . "bpvm_summary` WHERE 1 AND `post_type` = '{$post_type}' AND `vote_type`={$vote_type} AND 
                                 " . $wpdb->prefix . "bpvm_summary.vote_date BETWEEN now() - interval 1 week AND now() GROUP BY `postid` ORDER BY tv {$order} limit 0, {$limit}";
