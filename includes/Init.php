@@ -82,7 +82,7 @@ class Init {
 		$classes = [
 			// Base\Enqueue::class,
 			// Base\AdminEnqueue::class,
-			// Base\PluginUpdate::class,
+			Base\PluginUpdate::class,
 			Base\Language::class,
 			// Base\AdminAjaxHandlers::class,
 
