@@ -2,7 +2,7 @@
   function wpva_bpvm_installation_counter() {
     return $.ajax({
       type: "POST",
-      url: ajaxurl,
+      url: wpvaBpvmAdminData.ajaxurl,
       data: {
         action: "wpva_bpvm_installation_counter", // this is the name of our WP AJAX function that we'll set up next
         product_id: wpvaBpvmAdminData.product_id, // change the localization variable.

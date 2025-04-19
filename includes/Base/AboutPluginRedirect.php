@@ -1,10 +1,10 @@
 <?php
-namespace RECAPADDON\Base;
+namespace WPVAADDON\Base;
 
 /**
  * Class for plucin redirection to about page.
  *
- * @package RECAPADDON
+ * @package WPVAADDON
  */
 class AboutPluginRedirect {
 

@@ -1,10 +1,10 @@
 <?php
-namespace RECAPADDON\Base;
+namespace WPVAADDON\Base;
 
 /**
  * Class for registering the plugin admin scripts and styles.
  *
- * @package RECAPADDON
+ * @package WPVAADDON
  */
 class AdminEnqueue {
 
@@ -21,7 +21,7 @@ class AdminEnqueue {
 	public function __construct() {
 		// Frontend script slug.
 		// This is required to hook the loclization texts.
-		$this->admin_script_slug = 'bpvm-recap-admin';
+		$this->admin_script_slug = 'bpvm-wpva-admin';
 	}
 
 	/**
@@ -38,9 +38,9 @@ class AdminEnqueue {
 
 				wp_enqueue_script(
 					$this->admin_script_slug,
-					RECAPADDON_PLUGIN_SCRIPTS_ASSETS_DIR . 'admin.js',
+					WPVAADDON_PLUGIN_SCRIPTS_ASSETS_DIR . 'admin.js',
 					[ 'jquery' ],
-					RECAPADDON_PLUGIN_VERSION, true
+					WPVAADDON_PLUGIN_VERSION, true
 				);
 
 				$this->get_the_localization_texts();
@@ -56,12 +56,12 @@ class AdminEnqueue {
 		// Access data: bkbTplAdminData.version
 		wp_localize_script(
             $this->admin_script_slug,
-            'RecapAddonAdminData',
+            'wpvaBpvmAdminData',
             [
-				'version'      => RECAPADDON_PLUGIN_VERSION,
+				'version'      => WPVAADDON_PLUGIN_VERSION,
 				'ajaxurl'      => esc_url( admin_url( 'admin-ajax.php' ) ),
-				'product_id'   => RECAPADDON_PRODUCT_ID,
-				'installation' => get_option( RECAPADDON_PRODUCT_INSTALLATION_TAG ),
+				'product_id'   => WPVAADDON_PRODUCT_ID,
+				'installation' => get_option( WPVAADDON_PRODUCT_INSTALLATION_TAG ),
 			]
 		);
 	}
