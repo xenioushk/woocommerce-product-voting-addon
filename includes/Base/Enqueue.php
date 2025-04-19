@@ -71,14 +71,12 @@ class Enqueue {
 
 		// Localize scripts.
 		// Frontend.
-		// Access data: bpvmRecapData.version
+		// Access data: bpvmWpvaData.version
 		wp_localize_script(
             $this->frontend_script_slug,
-            'bpvmRecapData',
+            'bpvmWpvaData',
             [
-				'version'             => WPVAADDON_PLUGIN_VERSION,
-				'recap_time_status'   => empty( WPVAADDON_ENABLE_STATUS ) ? 0 : 1,
-				'recap_time_interval' => is_numeric( WPVAADDON_TIME_INTERVAL_STATUS ) ? WPVAADDON_TIME_INTERVAL_STATUS : 3600,
+				'version' => WPVAADDON_PLUGIN_VERSION,
 			]
 		);
 	}

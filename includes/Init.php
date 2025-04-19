@@ -27,8 +27,8 @@ class Init {
 			'helpers' => self::get_helper_classes(),
 			'base'    => self::get_base_classes(),
 			'meta'    => self::get_meta_classes(),
-			// 'actions' => self::get_action_classes(),
-			// 'filters'    => self::get_filter_classes(),
+			'actions' => self::get_action_classes(),
+			'filters' => self::get_filter_classes(),
 			// 'shortcodes' => self::get_shortcodes_classes(),
 			// 'notices' => self::get_notices_classes(),
 		];
@@ -123,7 +123,7 @@ class Init {
 	private static function get_action_classes() {
 
 		$classes = [
-			Controllers\Actions\RecaptchaOverlay::class,
+			Controllers\Actions\WPVAActions::class,
 		];
 		return $classes;
 	}
@@ -136,10 +136,7 @@ class Init {
 	private static function get_filter_classes() {
 
 		$classes = [
-			Controllers\Filters\Templates\Pagination::class,
-			Controllers\Filters\Templates\Category::class,
-			Controllers\Filters\Templates\Tag::class,
-			Controllers\Filters\Templates\Single::class,
+			Controllers\Filters\WPVAFilters::class,
 		];
 		return $classes;
 	}

@@ -18,10 +18,11 @@ class BPVM_Wpva {
 
             // Load public-facing style sheet and JavaScript.
 
-            add_filter( 'woocommerce_get_catalog_ordering_args', [ $this, 'bpvm_add_postmeta_ordering_args' ] );
-            add_filter( 'woocommerce_default_catalog_orderby_options', [ $this, 'bpvm_add_new_postmeta_orderby' ] );
-            add_filter( 'woocommerce_catalog_orderby', [ $this, 'bpvm_add_new_postmeta_orderby' ] );
-            add_action( 'woocommerce_after_shop_loop_item', [ $this, 'bpvm_shop_display_voting_meta' ], 9 );
+            // add_filter( 'woocommerce_get_catalog_ordering_args', [ $this, 'bpvm_add_postmeta_ordering_args' ] );
+            // add_filter( 'woocommerce_default_catalog_orderby_options', [ $this, 'bpvm_add_new_postmeta_orderby' ] );
+            // add_filter( 'woocommerce_catalog_orderby', [ $this, 'bpvm_add_new_postmeta_orderby' ] );
+
+            // add_action( 'woocommerce_after_shop_loop_item', [ $this, 'bpvm_shop_display_voting_meta' ], 9 );
 
             // This function has been added in version 1.0.2.
             // It counts and update all the products both like and dislike votes and update in to a post meta 'pvm_total_votes'.
