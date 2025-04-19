@@ -29,8 +29,6 @@ class Init {
 			'meta'    => self::get_meta_classes(),
 			'actions' => self::get_action_classes(),
 			'filters' => self::get_filter_classes(),
-			// 'shortcodes' => self::get_shortcodes_classes(),
-			// 'notices' => self::get_notices_classes(),
 		];
 
 		foreach ( $service_classes as $service_class ) {
@@ -84,6 +82,7 @@ class Init {
 			Base\AdminEnqueue::class,
 			Base\PluginUpdate::class,
 			Base\Language::class,
+			Base\FrontendAjaxHandlers::class,
 			Base\AdminAjaxHandlers::class,
 		];
 		return $classes;
@@ -97,7 +96,7 @@ class Init {
 	private static function get_helper_classes() {
 		$classes = [
 			Helpers\PluginConstants::class,
-			// Helpers\BkbTplHelpers::class,
+			Helpers\WpvaHelpers::class,
 		];
 		return $classes;
 	}
@@ -137,30 +136,6 @@ class Init {
 
 		$classes = [
 			Controllers\Filters\WPVAFilters::class,
-		];
-		return $classes;
-	}
-
-	/**
-	 * Get Shortcode classes.
-	 *
-	 * @return array
-	 */
-	private static function get_shortcodes_classes() {
-		$classes = [
-			Controllers\Shortcodes\AddonShortcodes::class,
-		];
-		return $classes;
-	}
-
-	/**
-	 * Get Notices classes.
-	 *
-	 * @return array
-	 */
-	private static function get_notices_classes() {
-		$classes = [
-			Controllers\Notices\PluginNotices::class,
 		];
 		return $classes;
 	}

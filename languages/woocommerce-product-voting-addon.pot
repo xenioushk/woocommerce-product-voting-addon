@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-19T08:08:16+00:00\n"
+"POT-Creation-Date: 2025-04-19T17:25:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: bpvm_wpva\n"
@@ -52,15 +52,42 @@ msgid "Plugins to use"
 msgstr ""
 
 #: includes/admin/metainfo/BpvmWpvaMetaInfo.php:22
+#: includes/Controllers/PluginMeta/MetaInfo.php:35
 msgid "Docs"
 msgstr ""
 
 #: includes/admin/metainfo/BpvmWpvaMetaInfo.php:27
+#: includes/Controllers/PluginMeta/MetaInfo.php:40
 msgid "Support"
 msgstr ""
 
 #: includes/admin/metainfo/BpvmWpvaMetaInfo.php:32
 msgid "Tutorials"
+msgstr ""
+
+#: includes/Callbacks/Filters/ProductCatalogOptionsCb.php:27
+#: includes/public/class-wpva-addon.php:99
+msgid "Sort by top liked"
+msgstr ""
+
+#: includes/Callbacks/Filters/ProductCatalogOptionsCb.php:28
+#: includes/public/class-wpva-addon.php:100
+msgid "Sort by top disliked"
+msgstr ""
+
+#: includes/Callbacks/Filters/ProductCatalogOptionsCb.php:30
+#: includes/public/class-wpva-addon.php:102
+msgid "Sort by votes: low to high"
+msgstr ""
+
+#: includes/Callbacks/Filters/ProductCatalogOptionsCb.php:31
+#: includes/public/class-wpva-addon.php:103
+msgid "Sort by votes: high to low"
+msgstr ""
+
+#: includes/Callbacks/FrontendAjaxHandlers/ProductsDataCb.php:74
+#: includes/Widgets/WpvaWidget.php:253
+msgid "Sorry, No Product Found!"
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Addon title, 3: Current version, 4: Minimum required version
@@ -79,92 +106,71 @@ msgstr ""
 msgid "Please Activate the %1$s to use the %2$s."
 msgstr ""
 
-#: includes/public/class-wpva-addon.php:153
-msgid "Sort by top liked"
-msgstr ""
-
-#: includes/public/class-wpva-addon.php:154
-msgid "Sort by top disliked"
-msgstr ""
-
-#: includes/public/class-wpva-addon.php:156
-msgid "Sort by votes: low to high"
-msgstr ""
-
-#: includes/public/class-wpva-addon.php:157
-msgid "Sort by votes: high to low"
-msgstr ""
-
-#: includes/widgets/pvm-woo-widget.php:162
-#: includes/widgets/pvm-woo-widget.php:408
-msgid "Sorry, No Product Found!"
-msgstr ""
-
-#: includes/widgets/pvm-woo-widget.php:188
+#: includes/Widgets/WpvaWidget.php:23
 msgid "WooCommerce Voting Widget"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:191
+#: includes/Widgets/WpvaWidget.php:26
 msgid "Display Top Up/Down Voted Products In sidebar area"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:200
+#: includes/Widgets/WpvaWidget.php:34
 msgid "Top Liked Products"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:215
+#: includes/Widgets/WpvaWidget.php:49
 msgid "Title"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:222
+#: includes/Widgets/WpvaWidget.php:58
 msgid "Filter Type:"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:225
-#: includes/widgets/pvm-woo-widget.php:349
+#: includes/Widgets/WpvaWidget.php:62
+#: includes/Widgets/WpvaWidget.php:194
 msgid "Last 1 Day"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:227
-#: includes/widgets/pvm-woo-widget.php:350
+#: includes/Widgets/WpvaWidget.php:64
+#: includes/Widgets/WpvaWidget.php:195
 msgid "Last 1 Week"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:229
-#: includes/widgets/pvm-woo-widget.php:351
+#: includes/Widgets/WpvaWidget.php:67
+#: includes/Widgets/WpvaWidget.php:196
 msgid "Last 1 Month"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:231
-#: includes/widgets/pvm-woo-widget.php:352
+#: includes/Widgets/WpvaWidget.php:70
+#: includes/Widgets/WpvaWidget.php:197
 msgid "Last 6 Month"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:233
-#: includes/widgets/pvm-woo-widget.php:353
+#: includes/Widgets/WpvaWidget.php:73
+#: includes/Widgets/WpvaWidget.php:198
 msgid "Count All"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:239
+#: includes/Widgets/WpvaWidget.php:80
 msgid "Display Frontend Voting Filter"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:247
+#: includes/Widgets/WpvaWidget.php:91
 msgid "Order Type:"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:250
+#: includes/Widgets/WpvaWidget.php:95
 msgid "Liked"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:252
+#: includes/Widgets/WpvaWidget.php:98
 msgid "Disliked"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:258
+#: includes/Widgets/WpvaWidget.php:105
 msgid "No Of Posts"
 msgstr ""
 
-#: includes/widgets/pvm-woo-widget.php:348
+#: includes/Widgets/WpvaWidget.php:193
 msgid "Result Filter"
 msgstr ""

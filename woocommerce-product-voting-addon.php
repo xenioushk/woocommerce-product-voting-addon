@@ -97,7 +97,7 @@ function init_wpva_addon() {
 }
 
 add_action( 'init', __NAMESPACE__ . '\\init_wpva_addon' );
-
+require_once __DIR__ . '/includes/Widgets/index.php';
 return;
 
 define( 'BPVMWPVA_PARENT_PLUGIN_INSTALLED_VERSION', get_option( 'bwl_pvm_plugin_version' ) );
