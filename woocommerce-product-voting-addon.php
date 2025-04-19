@@ -33,8 +33,8 @@ if ( file_exists( __DIR__ . '/includes/Helpers/DependencyManager.php' ) ) {
 	Helpers\DependencyManager::register();
 }
 
-use RECAPADDON\Base\Activate;
-use RECAPADDON\Base\Deactivate;
+use WPVAADDON\Base\Activate;
+use WPVAADDON\Base\Deactivate;
 
 /**
  * Function to handle the activation of the plugin.
@@ -71,13 +71,19 @@ function init_wpva_addon() {
 		return;
 	}
 
+    // Check if the WooCommerce plugin installed.
+	if ( ! class_exists( 'WooCommerce' ) ) {
+        add_action( 'admin_notices', [ Helpers\DependencyManager::class, 'notice_missing_woocommerce_plugin' ] );
+        return;
+    }
+
 	// Check parent plugin activation status.
 	if ( ! ( Helpers\DependencyManager::get_product_activation_status() ) ) {
 		add_action( 'admin_notices', [ Helpers\DependencyManager::class, 'notice_missing_purchase_verification' ] );
 		return;
 	}
 
-	if ( class_exists( 'RECAPADDON\\Init' ) ) {
+	if ( class_exists( 'WPVAADDON\\Init' ) ) {
 
 		// Check the required minimum version of the parent plugin.
 		if ( ! ( Helpers\DependencyManager::check_minimum_version_requirement_status() ) ) {

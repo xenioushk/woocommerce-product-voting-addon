@@ -27,12 +27,13 @@ class DependencyManager {
 	 * @var string
 	 */
 	public static $bpvm_license_url;
+
 	/**
      * Plugin parent WPBakery Page Builder URL.
      *
      * @var string
      */
-	public static $wpb_url;
+	public static $woocommerce_url;
 
 	/**
 	 * Plugin addon title.
@@ -55,7 +56,8 @@ class DependencyManager {
 	private static function set_urls() {
 		self::$bpvm_url         = "<strong><a href='https://1.envato.market/bpvm-wp' target='_blank'>BWL Pro Voting Manager</a></strong>";
 		self::$bpvm_license_url = "<strong><a href='" . admin_url( 'admin.php?page=bpvm-license' ) . "'>BWL Pro Voting Manager license</a></strong>";
-		self::$addon_title      = '<strong>Recaptcha Addon For BWL Pro Voting Manager</strong>';
+		self::$addon_title      = '<strong>WooCommerce Product Voting Addon</strong>';
+		self::$woocommerce_url  = "<strong><a href='https://downloads.wordpress.org/plugin/woocommerce.zip' target='_blank'>WooCommerce</a></strong>";
 	}
 
 	/**
@@ -105,7 +107,7 @@ class DependencyManager {
 
 		$message = sprintf(
 				// translators: 1: Plugin name, 2: Addon title, 3: Current version, 4: Minimum required version
-            esc_html__( 'The %2$s requires %1$s %4$s or higher. You are using %3$s', 'bpvm-recap' ),
+            esc_html__( 'The %2$s requires %1$s %4$s or higher. You are using %3$s', 'bpvm_wpva' ),
             self::$bpvm_url,
             self::$addon_title,
             BPVM_CURRENT_PLUGIN_VERSION,
@@ -124,12 +126,29 @@ class DependencyManager {
 
 		$message = sprintf(
 						// translators: 1: Plugin name, 2: Addon title
-            esc_html__( 'Please install and activate the %1$s plugin to use %2$s.', 'bpvm-recap' ),
+            esc_html__( 'Please install and activate the %1$s plugin to use %2$s.', 'bpvm_wpva' ),
             self::$bpvm_url,
             self::$addon_title
 		);
 
 	printf( '<div class="notice notice-error"><p>⚠️ %1$s</p></div>', $message ); // phpcs:ignore
+	}
+
+	/**
+     * Function to handle the missing woocommerce plugin notice.
+     *
+     * @return void
+     */
+	public static function notice_missing_woocommerce_plugin() {
+
+		$message = sprintf(
+						// translators: 1: Plugin name, 2: Addon title
+            esc_html__( 'Please install and activate the %1$s plugin to use %2$s.', 'bpvm_wpva' ),
+            self::$woocommerce_url,
+            self::$addon_title
+		);
+
+		printf( '<div class="notice notice-error"><p>⚠️ %1$s</p></div>', $message ); // phpcs:ignore
 	}
 
 	/**
@@ -141,7 +160,7 @@ class DependencyManager {
 
 		$message = sprintf(
 						// translators: 1: Plugin activation link, 2: Addon title
-            esc_html__( 'Please Activate the %1$s to use the %2$s.', 'bpvm-recap' ),
+            esc_html__( 'Please Activate the %1$s to use the %2$s.', 'bpvm_wpva' ),
             self::$bpvm_license_url,
             self::$addon_title
 		);

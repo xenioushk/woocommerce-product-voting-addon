@@ -1,12 +1,12 @@
 <?php
 
-namespace RECAPADDON;
+namespace WPVAADDON;
 
 /**
  * Class for Initialize plugin required searvices.
  *
  * @since: 1.1.0
- * @package RECAPADDON
+ * @package WPVAADDON
  */
 class Init {
 

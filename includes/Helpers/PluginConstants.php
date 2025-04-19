@@ -52,7 +52,6 @@ class PluginConstants {
 		self::set_paths_constants();
 		self::set_base_constants();
 		self::set_assets_constants();
-		self::set_recaptcha_constants();
 		self::set_updater_constants();
 		self::set_product_info_constants();
 	}
@@ -74,15 +73,12 @@ class PluginConstants {
 		$plugin_data = get_plugin_data( WPVAADDON_PLUGIN_DIR . WPVAADDON_PLUGIN_ROOT_FILE );
 
 		define( 'WPVAADDON_PLUGIN_VERSION', $plugin_data['Version'] ?? '1.0.0' );
-		define( 'WPVAADDON_PLUGIN_TITLE', $plugin_data['Name'] ?? 'Recaptcha Addon For BWL Pro Voting Manager' );
+		define( 'WPVAADDON_PLUGIN_TITLE', $plugin_data['Name'] ?? 'WooCommerce Product Voting Addon' );
 		define( 'WPVAADDON_TRANSLATION_DIR', $plugin_data['DomainPath'] ?? '/languages/' );
 		define( 'WPVAADDON_TEXT_DOMAIN', $plugin_data['TextDomain'] ?? '' );
 
-		define( 'WPVAADDON_PLUGIN_FOLDER', 'bpvm-recaptcha-addon' );
+		define( 'WPVAADDON_PLUGIN_FOLDER', 'woocommerce-product-voting-addon' );
 		define( 'WPVAADDON_PLUGIN_CURRENT_VERSION', WPVAADDON_PLUGIN_VERSION );
-		define( 'WPVAADDON_PLUGIN_POST_TYPE', 'bwl_kb' );
-		define( 'WPVAADDON_PLUGIN_TAXONOMY_CAT', 'bkb_category' );
-		define( 'WPVAADDON_PLUGIN_TAXONOMY_TAGS', 'bkb_tags' );
 
 	}
 
@@ -90,7 +86,7 @@ class PluginConstants {
 	 * Set the plugin paths constants.
 	 */
 	private static function set_paths_constants() {
-		define( 'WPVAADDON_PLUGIN_ROOT_FILE', 'bpvm-recaptcha-addon.php' );
+		define( 'WPVAADDON_PLUGIN_ROOT_FILE', 'woocommerce-product-voting-addon.php' );
 		define( 'WPVAADDON_PLUGIN_DIR', self::get_plugin_path() );
 		define( 'WPVAADDON_PLUGIN_FILE_PATH', WPVAADDON_PLUGIN_DIR );
 		define( 'WPVAADDON_PLUGIN_URL', self::get_plugin_url() );
@@ -103,15 +99,6 @@ class PluginConstants {
 		define( 'WPVAADDON_PLUGIN_STYLES_ASSETS_DIR', WPVAADDON_PLUGIN_URL . 'assets/styles/' );
 		define( 'WPVAADDON_PLUGIN_SCRIPTS_ASSETS_DIR', WPVAADDON_PLUGIN_URL . 'assets/scripts/' );
 		define( 'WPVAADDON_PLUGIN_LIBS_DIR', WPVAADDON_PLUGIN_URL . 'libs/' );
-	}
-
-	/**
-	 * Set the recaptcha constants.
-	 */
-	private static function set_recaptcha_constants() {
-		define( 'WPVAADDON_SITE_KEY', self::$plugin_options['bpvm_recaptcha_site_key'] ?? '' );
-		define( 'WPVAADDON_ENABLE_STATUS', self::$plugin_options['bpvm_recaptcha_conditinal_fields']['enabled'] ?? [] );
-		define( 'WPVAADDON_TIME_INTERVAL_STATUS', self::$plugin_options['bpvm_recaptcha_conditinal_fields']['bpvm_recaptcha_interval'] ?? 3600 );
 	}
 
 	/**
